@@ -1,14 +1,14 @@
-const { Client } = require('pg');
+const { Client } = require('pg')
 
-async function login(database){
-    const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`;
-    let client = new Client({
-      connectionString,
-    });
-    await client.connect();
-    try {
-        const query = `
-            CREATE TABLE IF NOT EXISTS users (
+async function login (database) {
+  const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`
+  let client = new Client({
+    connectionString
+  })
+  await client.connect()
+  try {
+    const query = `
+            CREATE TABLE IF NOT EXISTS login_details (
                 s_username VARCHAR(20) PRIMARY KEY,
                 s_password VARCHAR(20),
                 login_typ VARCHAR(20),
@@ -16,18 +16,18 @@ async function login(database){
                 t_user_crtd_on TIMESTAMP,
                 t_user_last_login TIMESTAMP
             );
-        `;
-           await client.query(query);
-           console.log('users login Table created successfully');  
-        } catch(error){
-           console.error('Error creating table:', error);
-      } finally {
-      if (client._ending) {
-          console.error('Error: Connection already closed.');
-      } else {
-          await client.end();
-      }
+        `
+    await client.query(query)
+    console.log('users login Table created successfully')
+  } catch (error) {
+    console.error('Error creating table:', error)
+  } finally {
+    if (client._ending) {
+      console.error('Error: Connection already closed.')
+    } else {
+      await client.end()
+    }
   }
 }
 
-login("vtsdatabase");
+login('vtsdatabase')

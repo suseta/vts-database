@@ -1,13 +1,13 @@
-const { Client } = require('pg');
+const { Client } = require('pg')
 
-async function assetDetails(database){
-    const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`;
-    let client = new Client({
-      connectionString,
-    });
-    await client.connect();
-    try {
-        const query = `
+async function assetDetails (database) {
+  const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`
+  let client = new Client({
+    connectionString
+  })
+  await client.connect()
+  try {
+    const query = `
             CREATE TABLE IF NOT EXISTS asset_details (
                 s_asset_id VARCHAR(10) PRIMARY KEY,
                 s_asset_name VARCHAR(30),
@@ -19,8 +19,8 @@ async function assetDetails(database){
                 s_fuel_typ VARCHAR(10),
                 s_asset_cap VARCHAR(10),
                 s_asset_typ VARCHAR(10),
-                d_tare_wt DOUBLE,
-                d_gross_wt DOUBLE,
+                d_tare_wt DOUBLE PRECISION,
+                d_gross_wt DOUBLE PRECISION,
                 mileage INT,
                 ovrspd_lmt INT,
                 reg_dt DATE,
@@ -39,7 +39,7 @@ async function assetDetails(database){
                 s_nat_crt_no VARCHAR(20),
                 nat_test_dt DATE,
                 nat_crt_vld_dt DATE,
-                d_std_km DOUBLE,
+                d_std_km DOUBLE PRECISION,
                 peso_lic_dt DATE,
                 rule_18 DATE,
                 rule_19 DATE,
@@ -48,18 +48,18 @@ async function assetDetails(database){
                 s_cus_rmk VARCHAR(100),
                 s_bill_rmk VARCHAR(100)
             );
-        `;
-           await client.query(query);
-           console.log('Asset Info Table created successfully');  
-        } catch(error){
-           console.error('Error creating table:', error);
-      } finally {
-      if (client._ending) {
-          console.error('Error: Connection already closed.');
-      } else {
-          await client.end();
-      }
+        `
+    await client.query(query)
+    console.log('Asset Info Table created successfully')
+  } catch (error) {
+    console.error('Error creating table:', error)
+  } finally {
+    if (client._ending) {
+      console.error('Error: Connection already closed.')
+    } else {
+      await client.end()
+    }
   }
 }
 
-assetDetails("vtsdatabase");
+assetDetails('vtsdatabase')

@@ -1,15 +1,13 @@
-driver_details
+const { Client } = require('pg')
 
-const { Client } = require('pg');
-
-async function driverDetails(database){
-    const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`;
-    let client = new Client({
-      connectionString,
-    });
-    await client.connect();
-    try {
-        const query = `
+async function driverDetails (database) {
+  const connectionString = `postgresql://postgres:root@65.2.151.41:5432/${database}`
+  let client = new Client({
+    connectionString
+  })
+  await client.connect()
+  try {
+    const query = `
             CREATE TABLE IF NOT EXISTS driver_details (
                 s_drv_id VARCHAR(10) PRIMARY KEY,
                 s_drv_name VARCHAR(50),
@@ -32,18 +30,18 @@ async function driverDetails(database){
                 s_rmk VARCHAR(100),
                 s_covid_status VARCHAR(10)
             );
-        `;
-           await client.query(query);
-           console.log('Asset Info Table created successfully');  
-        } catch(error){
-           console.error('Error creating table:', error);
-      } finally {
-      if (client._ending) {
-          console.error('Error: Connection already closed.');
-      } else {
-          await client.end();
-      }
+        `
+    await client.query(query)
+    console.log('Driver details Table created successfully')
+  } catch (error) {
+    console.error('Error creating table:', error)
+  } finally {
+    if (client._ending) {
+      console.error('Error: Connection already closed.')
+    } else {
+      await client.end()
+    }
   }
 }
 
-driverDetails("vtsdatabase");
+driverDetails('vtsdatabase')
