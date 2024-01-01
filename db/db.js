@@ -1,7 +1,10 @@
 const { Client } = require('pg');
 
+require('dotenv').config();
+const UbuntuIP = process.env.UbuntuIP;
+
 const createDatabase = async (database) => {
-    const connectionString = `postgresql://postgres:root@65.2.151.41:5432/`;
+    const connectionString = `postgresql://postgres:root@UbuntuIP:5432/`;
     let client = new Client({
         connectionString,
     });
@@ -17,4 +20,4 @@ const createDatabase = async (database) => {
     }
 }
 
-createDatabase("vtsdatabase")
+createDatabase("navXdb")

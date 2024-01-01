@@ -27,6 +27,7 @@ async function driverDetails (database) {
                 med_tst_dt DATE,
                 prd_trn_dt DATE,
                 ddt_exp_dt DATE,
+                cab_vld_dt DATE,
                 s_rmk VARCHAR(100),
                 s_covid_status VARCHAR(10)
             );
