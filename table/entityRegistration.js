@@ -37,6 +37,8 @@ async function customerEntityDetails(database){
             s_svr_typ VARCHAR(20),
             s_mb_actv VARCHAR(20),
             i_ovr_spd_lmt INT DEFAULT 50,
+            s_rep_wp VARCHAR(80),
+            s_frc_entity_map VARCHAR(80),
             b_is_fnd BOOLEAN,
             s_fnd_rt DOUBLE PRECISION
           );
