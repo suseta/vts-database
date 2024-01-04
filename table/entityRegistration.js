@@ -5,7 +5,7 @@ const UbuntuIP = process.env.UbuntuIP;
 const password = process.env.Password;
 
 async function customerEntityDetails(database){
-    const connectionString = `postgresql://postgres:password@UbuntuIP:5432/${database}`;
+    const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/${database}`;
     let client = new Client({
       connectionString,
     });
@@ -23,8 +23,10 @@ async function customerEntityDetails(database){
             s_entity_mb_no VARCHAR(12),
             s_entity_add VARCHAR(100),
             s_entity_pin VARCHAR(10),
+            s_entity_country	VARCHAR(50),
             s_entity_state VARCHAR(50),
             s_entity_city VARCHAR(50),
+            entity_tmz	VARCHAR(80),
             b_is_billing BOOLEAN,
             s_billing_name VARCHAR(80),
             s_billing_typ VARCHAR(30),
@@ -56,4 +58,4 @@ async function customerEntityDetails(database){
   }
 }
 
-customerEntityDetails("navXdb");
+customerEntityDetails("navxdb");
