@@ -33,7 +33,9 @@ async function customerEntityDetails (database) {
           ddt_exp_dt DATE,
           cab_vld_dt DATE,
           s_drv_rmk	VARCHAR(100),
-          s_covid_status VARCHAR(10)
+          s_covid_status VARCHAR(10),
+          s_drv_img_path VARCHAR(100),
+          s_drv_lic_img_path VARCHAR(100)
           );
         `
     await client.query(query)
