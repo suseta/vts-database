@@ -2,9 +2,10 @@ const { Client } = require('pg');
 
 require('dotenv').config();
 const UbuntuIP = process.env.UbuntuIP;
+const password = process.env.Password;
 
 const createDatabase = async (database) => {
-    const connectionString = `postgresql://postgres:root@UbuntuIP:5432/`;
+    const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/`;
     let client = new Client({
         connectionString,
     });
