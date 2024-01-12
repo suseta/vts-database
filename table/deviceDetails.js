@@ -18,7 +18,7 @@ async function customerEntityDetails (database) {
           s_sim_op VARCHAR(50),
           s_dvc_typ	VARCHAR(50),
           dvc_mdl_name VARCHAR(80),
-          dvc_timezone TIMESTAMP,
+          dvc_timezone VARCHAR(80),
           dvc_mfg_dt DATE,
           dvc_add_dt DATE,
           dvc_dlt_dt DATE,
