@@ -1,17 +1,19 @@
-const { Client } = require('pg');
+// Transporter Registration
 
-require('dotenv').config();
-const UbuntuIP = process.env.UbuntuIP;
-const password = process.env.Password;
+const { Client } = require('pg')
 
-async function customerEntityDetails(database){
-    const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/${database}`;
-    let client = new Client({
-      connectionString,
-    });
-    await client.connect();
-    try {
-        const query = `
+require('dotenv').config()
+const ubuntuIP = process.env.UbuntuIP
+const password = process.env.Password
+
+async function transporterDetails (database) {
+  const connectionString = `postgresql://postgres:${password}@${ubuntuIP}:5432/${database}`
+  let client = new Client({
+    connectionString
+  })
+  await client.connect()
+  try {
+    const query = `
         CREATE TABLE IF NOT EXISTS transporter_details (
             s_entity_id VARCHAR(10) REFERENCES entity_details(s_entity_id),
             s_entity_id_and_name VARCHAR(80),
@@ -37,18 +39,18 @@ async function customerEntityDetails(database){
             s_trans_acc_no VARCHAR(30),
             s_trans_ifsc_cd VARCHAR(20)
           );
-        `;
-           await client.query(query);
-           console.log('Transporter Details Table created successfully');  
-        } catch(error){
-           console.error('Error creating table:', error);
-      } finally {
-      if (client._ending) {
-          console.error('Error: Connection already closed.');
-      } else {
-          await client.end();
-      }
+        `
+    await client.query(query)
+    console.log('Transporter Details Table created successfully')
+  } catch (error) {
+    console.error('Error creating table:', error)
+  } finally {
+    if (client._ending) {
+      console.error('Error: Connection already closed.')
+    } else {
+      await client.end()
+    }
   }
 }
 
-customerEntityDetails("navxdb");
+transporterDetails('navxdb')

@@ -1,11 +1,13 @@
+// Device Type
+
 const { Client } = require('pg')
 
 require('dotenv').config()
-const UbuntuIP = process.env.UbuntuIP
+const ubuntuIP = process.env.UbuntuIP
 const password = process.env.Password
 
-async function customerEntityDetails (database) {
-  const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/${database}`
+async function deviceType (database) {
+  const connectionString = `postgresql://postgres:${password}@${ubuntuIP}:5432/${database}`
   let client = new Client({
     connectionString
   })
@@ -31,13 +33,7 @@ async function customerEntityDetails (database) {
   }
 }
 
-customerEntityDetails('navxdb')
-
-
-
-
-
-
+deviceType('navxdb')
 
 // INSERT INTO device_type (s_device_type_id, s_device_name, is_active) VALUES
 //     ('Concox', 'Concox (8500)', true),

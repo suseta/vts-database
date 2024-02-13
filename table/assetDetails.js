@@ -1,11 +1,13 @@
+// Asset Registration
+
 const { Client } = require('pg')
 
 require('dotenv').config()
-const UbuntuIP = process.env.UbuntuIP
+const ubuntuIP = process.env.UbuntuIP
 const password = process.env.Password
 
-async function customerEntityDetails (database) {
-  const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/${database}`
+async function assetDetails (database) {
+  const connectionString = `postgresql://postgres:${password}@${ubuntuIP}:5432/${database}`
   let client = new Client({
     connectionString
   })
@@ -60,4 +62,4 @@ async function customerEntityDetails (database) {
   }
 }
 
-customerEntityDetails('navxdb')
+assetDetails('navxdb')
