@@ -38,7 +38,6 @@ async function gpsParsedData (database) {
             s_ntw_op VARCHAR(30),
             s_ntw_typ VARCHAR(20),
             d_sgnl_pwr DOUBLE PRECISION,
-            d_sgnl_pwr DOUBLE PRECISION,
             d_int_bat_volt DOUBLE PRECISION,
             s_ign_ip VARCHAR(10),
             s_buz_op VARCHAR(10),
@@ -51,7 +50,7 @@ async function gpsParsedData (database) {
             s_pkt_cnt VARCHAR(30),
             s_crc VARCHAR(20),
             c_last_char CHAR,
-            CONSTRAINT check_pkt_cnt CHECK (s_pkt_cnt::INT <= 99999),
+            CONSTRAINT check_pkt_cnt CHECK (s_pkt_cnt::INT <= 99999)
         );`
     await client.query(query)
     console.log('GPS Parsed Data Table created successfully')
