@@ -1,4 +1,4 @@
-// Device Type
+// GPS Parsed Data from dataLog table
 
 const { Client } = require('pg')
 
