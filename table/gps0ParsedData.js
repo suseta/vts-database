@@ -1,4 +1,4 @@
-// GPS Parsed Data from dataLog table - Master table for all parsed data
+// GPS Parsed Data from dataLog table - Master table for all parsed data when GPS is unfix or 0
 
 const { Client } = require('pg')
 
@@ -14,7 +14,7 @@ async function gpsParsedData (database) {
   await client.connect()
   try {
     const query = `
-    CREATE TABLE IF NOT EXISTS gps_parsed_data (
+    CREATE TABLE IF NOT EXISTS gps_0_parsed_data (
             c_start_char CHAR,
             s_pkt_hdr VARCHAR(30),
             s_frmwr_ver VARCHAR(20),
@@ -53,7 +53,7 @@ async function gpsParsedData (database) {
             CONSTRAINT check_pkt_cnt CHECK (s_pkt_cnt::INT <= 99999)
         );`
     await client.query(query)
-    console.log('GPS Parsed Data Table created successfully')
+    console.log('GPS Unfix(0) Parsed Data Table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {
