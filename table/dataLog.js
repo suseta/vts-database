@@ -1,4 +1,4 @@
-// Device Type
+// Contains raw data coming from device
 
 const { Client } = require('pg')
 

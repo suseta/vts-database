@@ -1,4 +1,4 @@
-// Device Entry
+// Device Info Entry
 
 const { Client } = require('pg')
 

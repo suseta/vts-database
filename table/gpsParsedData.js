@@ -1,4 +1,4 @@
-// GPS Parsed Data from dataLog table
+// GPS Parsed Data from dataLog table - Master table for all parsed data
 
 const { Client } = require('pg')
 
@@ -33,13 +33,13 @@ async function gpsParsedData (database) {
             d_spd DOUBLE PRECISION CHECK (d_spd >= 0.0 AND d_spd <= 999.9),
             s_grd_crs VARCHAR(10),
             i_sat_cnt INT,
-            d_hdop DOUBLE PRECESION,
-            d_pdop DOUBLE PRECESION,
+            d_hdop DOUBLE PRECISION,
+            d_pdop DOUBLE PRECISION,
             s_ntw_op VARCHAR(30),
             s_ntw_typ VARCHAR(20),
-            d_sgnl_pwr DOUBLE PRECESION,
-            d_sgnl_pwr DOUBLE PRECESION,
-            d_int_bat_volt DOUBLE PRECESION,
+            d_sgnl_pwr DOUBLE PRECISION,
+            d_sgnl_pwr DOUBLE PRECISION,
+            d_int_bat_volt DOUBLE PRECISION,
             s_ign_ip VARCHAR(10),
             s_buz_op VARCHAR(10),
             s_dyn_f1 VARCHAR(100),
