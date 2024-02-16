@@ -15,6 +15,8 @@ async function gpsParsedData (database) {
   try {
     const query = `
     CREATE TABLE IF NOT EXISTS gps_1_parsed_data (
+            s_unique_id VARCHAR(52) REFERENCES datalog(s_unique_id),
+    	      s_port_no VARCHAR(6),
             c_start_char CHAR,
             s_pkt_hdr VARCHAR(30),
             s_frmwr_ver VARCHAR(20),
