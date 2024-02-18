@@ -37,7 +37,7 @@ async function assetDeviceMapping (database) {
           );
         `
     await client.query(query)
-    console.log('Asset Device Mapping Table created successfully')
+    console.log('Asset Device Mapping table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

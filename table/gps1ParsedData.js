@@ -6,7 +6,7 @@ require('dotenv').config()
 const ubuntuIP = process.env.UbuntuIP
 const password = process.env.Password
 
-async function gpsParsedData (database) {
+async function gps1ParsedData (database) {
   const connectionString = `postgresql://postgres:${password}@${ubuntuIP}:5432/${database}`
   let client = new Client({
     connectionString
@@ -55,7 +55,7 @@ async function gpsParsedData (database) {
             CONSTRAINT check_pkt_cnt CHECK (s_pkt_cnt::INT <= 99999)
         );`
     await client.query(query)
-    console.log('GPS Fix(1) Parsed Data Table created successfully')
+    console.log('GPS Fix(1) Parsed Data table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {
@@ -67,4 +67,4 @@ async function gpsParsedData (database) {
   }
 }
 
-gpsParsedData('navxdb')
+gps1ParsedData('navxdb')

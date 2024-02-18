@@ -18,7 +18,7 @@ async function userPageMapping (database) {
           );
         `
     await client.query(query)
-    console.log('login Table created successfully')
+    console.log('User Page Mapping table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

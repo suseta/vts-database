@@ -44,7 +44,7 @@ async function driverDetails (database) {
           );
         `
     await client.query(query)
-    console.log('Driver Details Table created successfully')
+    console.log('Driver Details table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

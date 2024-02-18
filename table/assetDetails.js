@@ -50,7 +50,7 @@ async function assetDetails (database) {
           );
         `
     await client.query(query)
-    console.log('Asset Details Table created successfully')
+    console.log('Asset Details table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

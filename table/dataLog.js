@@ -24,7 +24,7 @@ async function dataLog (database) {
           );
         `
     await client.query(query)
-    console.log('Datalog Table created successfully')
+    console.log('Data Log table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

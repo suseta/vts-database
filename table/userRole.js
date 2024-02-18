@@ -4,7 +4,7 @@ require('dotenv').config()
 const UbuntuIP = process.env.UbuntuIP
 const password = process.env.Password
 
-async function user_role (database) {
+async function userRole (database) {
   const connectionString = `postgresql://postgres:${password}@${UbuntuIP}:5432/${database}`
   let client = new Client({
     connectionString
@@ -12,13 +12,13 @@ async function user_role (database) {
   await client.connect()
   try {
     const query = `
-        CREATE TABLE IF NOT EXISTS c (
+        CREATE TABLE IF NOT EXISTS user_role (
             id SERIAL PRIMARY KEY,
             role_name VARCHAR(50) UNIQUE NOT NULL
           );
         `
     await client.query(query)
-    console.log('login Table created successfully')
+    console.log('User Role table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {
@@ -30,4 +30,4 @@ async function user_role (database) {
   }
 }
 
-user_role('navxdb')
+userRole('navxdb')

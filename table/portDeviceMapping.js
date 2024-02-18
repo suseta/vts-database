@@ -22,7 +22,7 @@ async function portDeviceMapping (database) {
           );
         `
     await client.query(query)
-    console.log('device port mapping Info Table created successfully')
+    console.log('Port Device Mapping table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

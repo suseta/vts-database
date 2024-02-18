@@ -41,7 +41,7 @@ async function transporterDetails (database) {
           );
         `
     await client.query(query)
-    console.log('Transporter Details Table created successfully')
+    console.log('Transporter Details table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

@@ -6,7 +6,7 @@ require('dotenv').config()
 const ubuntuIP = process.env.UbuntuIP
 const password = process.env.Password
 
-async function lastPortAccessByImei (database) {
+async function lastPortAccessedByImei (database) {
   const connectionString = `postgresql://postgres:${password}@${ubuntuIP}:5432/${database}`
   let client = new Client({
     connectionString
@@ -20,7 +20,7 @@ async function lastPortAccessByImei (database) {
           );
         `
     await client.query(query)
-    console.log('last port by imei Info Table created successfully')
+    console.log('Last Port By IMEI table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {
@@ -32,4 +32,4 @@ async function lastPortAccessByImei (database) {
   }
 }
 
-lastPortAccessByImei('navxdb')
+lastPortAccessedByImei('navxdb')

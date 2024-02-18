@@ -23,7 +23,7 @@ async function assetDriverMapping (database) {
           );
         `
     await client.query(query)
-    console.log('Asset Driver Mapping Table created successfully')
+    console.log('Asset Driver Mapping table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

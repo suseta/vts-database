@@ -12,14 +12,14 @@ async function loginDetails (database) {
   await client.connect()
   try {
     const query = `
-        CREATE TABLE IF NOT EXISTS login (
+        CREATE TABLE IF NOT EXISTS login_details (
             username varchar(80),
             pass varchar(50),
             role_name varchar(50) REFERENCES user_role(role_name)
           );
         `
     await client.query(query)
-    console.log('login Table created successfully')
+    console.log('Login Details table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

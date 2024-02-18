@@ -21,7 +21,7 @@ async function deviceType (database) {
           );
         `
     await client.query(query)
-    console.log('Device Details Table created successfully')
+    console.log('Device Type table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {

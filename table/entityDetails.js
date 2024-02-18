@@ -48,7 +48,7 @@ async function entityDetails (database) {
           );
         `
     await client.query(query)
-    console.log('Entity Details Table created successfully')
+    console.log('Entity Details table created successfully')
   } catch (error) {
     console.error('Error creating table:', error)
   } finally {
