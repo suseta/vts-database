@@ -40,6 +40,7 @@ async function gps1ParsedData (database) {
             s_ntw_op VARCHAR(30),
             s_ntw_typ VARCHAR(20),
             d_sgnl_pwr DOUBLE PRECISION,
+            d_mn_pwr DOUBLE PRECISION,
             d_int_bat_volt DOUBLE PRECISION,
             s_ign_ip VARCHAR(10),
             s_buz_op VARCHAR(10),
